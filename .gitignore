@@ -14,3 +14,7 @@ yarn-error.log
 
 .idea
 .vscode
+
+ray.php
+
+resources/.DS_Store
