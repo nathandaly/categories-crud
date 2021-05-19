@@ -11,10 +11,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-
 .idea
 .vscode
-
 ray.php
-
-resources/.DS_Store
+.DS_Store
