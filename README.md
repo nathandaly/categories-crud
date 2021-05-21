@@ -4,7 +4,7 @@
 
 For this project I stuck with what I knew would be awesome to look at and also demonstrate some of Laravel's latest trends.
 
-The project has been developed with the TALL stack ([Tailwind](), [Alpine.js](), [Laravel]() and [Livewire]()).
+The project has been developed with the TALL stack ([Tailwind](https://tailwindcss.com/), [Alpine.js](https://github.com/alpinejs/alpine), [Laravel](https://laravel.com/docs/8.x) and [Livewire](https://laravel-livewire.com/)).
 
 ## Installation & setup
 
@@ -41,7 +41,7 @@ If your host system is not running PHP 8 then you will need to add `--ignore-pla
 
 ---
 
-Once the PHP and node dependencies have been resolved you can run the [Sail]() containers.
+Once the PHP and node dependencies have been resolved you can run the [Sail](https://laravel.com/docs/8.x/sail#introduction) containers.
 
 ```
 export APP_PORT=8082 && ./vendor/bin/sail up -d
@@ -62,3 +62,12 @@ Just head over to `localhost::8082` and login with the following credentials:
 email: test@dotfive.com
 password: password
 ```
+
+### Todos:
+
+If I had more time:
+- [ ] Testing for livewire components
+- [ ] Implement real-time cross browser changes with Laravel events and Echo
+- [ ] Implement multiple categories to list edit form
+- [ ] Implement add edit and category forms
+- [ ] Add ordering logic for items (position field has already been added to the migration)
