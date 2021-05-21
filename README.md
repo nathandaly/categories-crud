@@ -72,3 +72,4 @@ If I had more time:
 - [ ] Implement add edit and category forms
 - [ ] Add ordering logic for items (position field has already been added to the migration)
 - [ ] Example CRUD controller logic (with Livewire you can almost go down the non-controller route)
+- [ ] Created a generic form component that both add and edit could share with common methods such as `refresh()` and `save()`
