@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Http\Livewire\Forms\Categories;
 
-use App\Models\Category;
 use Livewire\Component;
+use App\Models\Category;
+use Illuminate\Contracts\View\View;
 
 class EditForm extends Component
 {
@@ -17,12 +18,12 @@ class EditForm extends Component
         'category.name' => 'required|string|min:3',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->category = Category::find($this->data['id']);
     }
 
-    public function delete()
+    public function delete(): void
     {
         if ($this->category->delete()) {
             $this->emitSelf('notify->saved');
@@ -30,7 +31,7 @@ class EditForm extends Component
         }
     }
 
-    public function save()
+    public function save(): void
     {
         $this->validate();
 
@@ -40,7 +41,7 @@ class EditForm extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.forms.categories.edit-form');
     }

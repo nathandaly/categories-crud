@@ -56,7 +56,7 @@ The project contains migration for the database structure as well as a `DotFive`
 ```
 
 ### :tada: Up and running :tada:
-That should all that is necessary for the application to be usable.
+That should be all that is necessary for the application to be usable.
 Just head over to `localhost::8082` and login with the following credentials:
 ```
 email: test@dotfive.com
@@ -71,3 +71,4 @@ If I had more time:
 - [ ] Implement multiple categories to list edit form
 - [ ] Implement add edit and category forms
 - [ ] Add ordering logic for items (position field has already been added to the migration)
+- [ ] Example CRUD controller logic (with Livewire you can almost go down the non-controller route)

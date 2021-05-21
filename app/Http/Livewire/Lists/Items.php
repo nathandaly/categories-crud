@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Livewire\Lists;
 
 use App\Models\Item;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Collection;
@@ -19,12 +20,12 @@ class Items extends Component
         'item:updated' => 'refresh',
     ];
 
-    public function mount()
+    public function mount(): void
     {
         $this->refresh();
     }
 
-    public function delete(int $itemId)
+    public function delete(int $itemId): void
     {
         /** @var Item */
         $item = $this->items->where('id', $itemId)->first();
@@ -35,7 +36,7 @@ class Items extends Component
         }
     }
 
-    public function refresh()
+    public function refresh(): void
     {
         if (!$this->category) {
             $this->items = Item::all();
@@ -46,7 +47,7 @@ class Items extends Component
         }
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.lists.items');
     }
