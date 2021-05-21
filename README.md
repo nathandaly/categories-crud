@@ -50,8 +50,8 @@ This command will normally take few minutes and will download and build the requ
 ### Database migration and seeding
 The project contains migration for the database structure as well as a `DotFive` user and example data which you can seed.
 ```
-sail artisan migrate
-sail artisan db:seed
+./vendor/bin/sail artisan migrate
+./vendor/bin/sail artisan db:seed
 ```
 
 ### :tada: Up and running :tada:
