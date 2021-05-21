@@ -32,6 +32,7 @@ Followed by
 
 ```
 npm install
+npm run dev
 ```
 ---
 **NOTE**
