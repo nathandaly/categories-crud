@@ -34,6 +34,20 @@ class UserFactory extends Factory
     }
 
     /**
+     * Indicated that the model's email address is a DotFive user.
+     *
+     * @return \Database\Factories\UserFactory
+     */
+    public function dotFiveUser()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'email' => 'test@dotfive.com',
+            ];
+        });
+    }
+
+    /**
      * Indicate that the model's email address should be unverified.
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory

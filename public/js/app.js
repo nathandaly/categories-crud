@@ -3796,11 +3796,17 @@ module.exports = {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+/* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(alpinejs__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/index */ "./resources/js/components/index.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+
+
 
 /***/ }),
 
@@ -3808,9 +3814,14 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
   \***********************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+
+window._ = (lodash__WEBPACK_IMPORTED_MODULE_0___default());
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -3832,6 +3843,257 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/action-panel.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/action-panel.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    open: false
+  };
+  return {
+    open: state.open,
+    details: null,
+    init: function init() {
+      this.attachEvent();
+    },
+    attachEvent: function attachEvent() {
+      var _this = this;
+
+      window.addEventListener('slideover:show', function (event) {
+        _this.open = true;
+        _this.details = event.detail;
+      });
+      window.addEventListener('slideover:hide', function () {
+        _this.open = false;
+      });
+    }
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/categories.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/categories.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    categories: []
+  };
+  return {
+    categories: state.categories,
+    editCategoryClick: function editCategoryClick(index) {
+      this.$wire.emit('slideover:set', {
+        name: 'livewire:forms.categories.edit-form',
+        title: 'Categories',
+        data: this.categories[index]
+      });
+      window.dispatchEvent(new CustomEvent('slideover:show', {
+        detail: this.categories[index]
+      }));
+    }
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/index.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/index.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ "./resources/js/components/menu.js");
+/* harmony import */ var _sidebar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sidebar */ "./resources/js/components/sidebar.js");
+/* harmony import */ var _action_panel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./action-panel */ "./resources/js/components/action-panel.js");
+/* harmony import */ var _categories__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./categories */ "./resources/js/components/categories.js");
+/* harmony import */ var _items__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./items */ "./resources/js/components/items.js");
+
+
+
+
+
+window.Components = window.Components || {};
+window.Components.menu = _menu__WEBPACK_IMPORTED_MODULE_0__.default;
+window.Components.sidebar = _sidebar__WEBPACK_IMPORTED_MODULE_1__.default;
+window.Components.actionPanel = _action_panel__WEBPACK_IMPORTED_MODULE_2__.default;
+window.Components.categories = _categories__WEBPACK_IMPORTED_MODULE_3__.default;
+window.Components.items = _items__WEBPACK_IMPORTED_MODULE_4__.default;
+
+/***/ }),
+
+/***/ "./resources/js/components/items.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/items.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    items: []
+  };
+  return {
+    items: state.items,
+    editItemClick: function editItemClick(index) {
+      this.$wire.emit('slideover:set', {
+        name: 'livewire:forms.items.edit-form',
+        title: 'Items',
+        data: this.items[index]
+      });
+      window.dispatchEvent(new CustomEvent('slideover:show', {
+        detail: this.items[index]
+      }));
+    }
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/menu.js":
+/*!*****************************************!*\
+  !*** ./resources/js/components/menu.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    open: false
+  };
+  return {
+    activeDescendant: null,
+    activeIndex: null,
+    items: null,
+    open: state.open,
+    init: function init() {
+      var _this = this;
+
+      this.items = Array.from(this.$el.querySelectorAll('[role="menuitem"]'));
+      this.$watch('open', function () {
+        if (_this.open) {
+          _this.activeIndex = -1;
+        }
+      });
+    },
+    focusButton: function focusButton() {
+      this.$refs.button.focus();
+    },
+    onButtonClick: function onButtonClick() {
+      var _this2 = this;
+
+      this.open = !this.open;
+
+      if (this.open) {
+        this.$nextTick(function () {
+          _this2.$refs["menu-items"].focus();
+        });
+      }
+    },
+    onButtonEnter: function onButtonEnter() {
+      var _this3 = this;
+
+      this.open = !this.open;
+
+      if (this.open) {
+        this.activeIndex = 0;
+        this.activeDescendant = this.items[this.activeIndex].id;
+        this.$nextTick(function () {
+          _this3.$refs["menu-items"].focus();
+        });
+      }
+    },
+    onArrowUp: function onArrowUp() {
+      if (!this.open) {
+        return this.open = true, this.activeIndex = this.items.length - 1, void (this.activeDescendant = this.items[this.activeIndex].id);
+      }
+
+      if (0 !== this.activeIndex) {
+        this.activeIndex = -1 === this.activeIndex ? this.items.length - 1 : this.activeIndex - 1;
+        this.activeDescendant = this.items[this.activeIndex].id;
+      }
+    },
+    onArrowDown: function onArrowDown() {
+      if (!this.open) {
+        return this.open = true, this.activeIndex = 0, void (this.activeDescendant = this.items[this.activeIndex].id);
+      }
+
+      if (this.activeIndex !== this.items.length - 1) {
+        this.activeIndex = this.activeIndex + 1;
+        this.activeDescendant = this.items[this.activeIndex].id;
+      }
+    },
+    onClickAway: function onClickAway(event) {
+      if (this.open) {
+        var editableSelector = ['[contentEditable=true]', '[tabindex]', 'a[href]', 'area[href]', 'button:not([disabled])', 'iframe', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])'].map(function (selector) {
+          return "".concat(selector, ":not([tabindex='-1'])");
+        }).join(",");
+        this.open = false;
+
+        if (!event.target.closest(editableSelector)) {
+          this.focusButton();
+        }
+      }
+    }
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/sidebar.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/sidebar.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* export default binding */ __WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    open: false
+  };
+  return {
+    open: state.open,
+    attachEvent: function attachEvent() {
+      var _this = this;
+
+      window.addEventListener('sidebar:show', function () {
+        _this.open = true;
+      });
+    }
+  };
+}
 
 /***/ }),
 
@@ -21315,6 +21577,30 @@ process.umask = function() { return 0; };
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	

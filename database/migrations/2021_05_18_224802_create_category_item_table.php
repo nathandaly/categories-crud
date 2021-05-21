@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoryItemsTable extends Migration
+class CreateCategoryItemTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateCategoryItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_items', function (Blueprint $table) {
+        Schema::create('category_item', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('item_id');
 
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
         });
     }
 
@@ -31,6 +30,6 @@ class CreateCategoryItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_items');
+        Schema::dropIfExists('category_item');
     }
 }

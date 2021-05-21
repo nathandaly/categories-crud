@@ -7,6 +7,7 @@ export default function (state = {
     editCategoryClick (index) {
       this.$wire.emit('slideover:set', {
         name: 'livewire:forms.categories.edit-form',
+        title: 'Categories',
         data: this.categories[index],
       });
       window.dispatchEvent(new CustomEvent('slideover:show', {

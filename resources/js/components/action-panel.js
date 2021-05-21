@@ -3,18 +3,20 @@ export default function (state = {
 }) {
   return {
     open: state.open,
-    contact: null,
+    details: null,
 
     init () {
       this.attachEvent();
     },
 
     attachEvent () {
-      console.info('slideover:show listener added')
       window.addEventListener('slideover:show', (event) => {
         this.open = true;
-        this.contact = event.detail;
-        console.log(this.contact.name);
+        this.details = event.detail;
+      });
+
+      window.addEventListener('slideover:hide', () => {
+        this.open = false;
       });
     }
   }

@@ -1,3 +1,4 @@
-require('./bootstrap');
+import './bootstrap';
+import 'alpinejs';
 
-require('alpinejs');
+import './components/index';

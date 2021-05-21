@@ -21,4 +21,7 @@ if (mix.inProduction()) {
     mix.version();
 }
 
-mix.browserSync('laravel.test:8082');
+mix.browserSync({
+  proxy: 'laravel.test:8082/',
+  notify: false,
+});
